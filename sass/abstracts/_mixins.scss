@@ -1,0 +1,54 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin gutterHorizontal {
+  float: left;
+  background-color: orange;
+  &:not(:last-child) {
+    margin-right: $gutter-horizontal;
+  }
+}
+
+/**
+0 - 600px : phone
+600 - 900px: table-portrait
+900 - 1200px: table-landscape
+[1200-1800px]: normal screen
+1800px + : big-desktop
+
+断点参数
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) { @content; } // 600px
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) { @content; } // 900px
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) { @content; } // 1200px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) { @content; } // 1800px
+  }
+}

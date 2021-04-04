@@ -1,0 +1,71 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  padding: 6rem;
+  background-color: rgba($color-white, .4);
+  box-shadow: 0 1.5rem 6rem rgba($color-black, .4);
+  transform: skewX(-12deg);
+  
+  @include respond(tab-port) {
+    width: 100%;
+    transform: skewX(0);
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .12);
+  }
+
+  // [TODO]
+  // story 头像 bug
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    overflow: hidden;
+    transform: skewX(12deg);
+    position: relative;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    @include respond(tab-port) {
+      transform: skewX(0);
+    }
+  }
+
+  &__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    transition: all .4s;
+  }
+
+  &__text {
+    transform: translateX(4rem) skewX(12deg);
+
+    @include respond(tab-port) {
+      transform: translateX(2rem) skewX(0);
+    }
+  }
+
+  &__caption {
+    // width: ;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.7rem;
+    opacity: 0;
+    transition: all .5s;
+  }
+
+  &:hover &__caption {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}

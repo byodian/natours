@@ -1,0 +1,88 @@
+.footer {
+  padding: 15rem 0;
+  background-color: $color-grey-dark-3;
+  font-size: $default-font-size;
+  color: $color-grey-light-1;
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 6rem;
+
+    @include respond(tab-port) {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__logo {
+    width: 15rem;
+    height: auto;
+  }
+
+  &__navigation {
+    padding-top: 2rem;
+    border-top: 1px solid $color-dark;
+    display: inline-block;
+
+    @include respond(tab-port) {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__link {
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color-grey-light-1;
+      text-transform: uppercase;
+      transition: all .2s;
+
+      @include respond(tab-land) {
+        font-size: 1.4rem;
+      }
+      
+      @include respond(phone) {
+        font-size: 1.2rem;
+      }
+    }
+
+    &:hover,
+    &:active {
+      display: inline-block;
+      color: $color-primary;
+      background-color: $color-grey-dark-3;
+      transform: rotate(5deg) scale(1.3);
+      box-shadow: 0 1rem 4rem rgba($color-black, .4);
+    }
+  }
+
+  &__copyright {
+    padding-top: 2rem;
+    border-top: 1px solid $color-dark;
+    width: 80%;
+    float: right;
+
+    @include respond(tab-port) {
+      width: 100%;
+      float: none;
+      text-align: center;
+    }
+  }
+}
